@@ -3,6 +3,7 @@ package tests;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.airbnbHomePage;
 
@@ -19,22 +20,23 @@ public class airbnbHomePageTest extends BasePageTest {
         });
         Allure.step("Doi xuat hien Menu bar", () -> {
             boolean isMenuBarVisible = airbnb.isMenuBarDisplayed();
-            if (!isMenuBarVisible) {
-                throw new AssertionError("Menu bar is not displayed");
-            }
+            Assert.assertTrue(
+                    isMenuBarVisible,
+                    "Menu bar should be visible on the Airbnb Home Page");
         });
 
         Allure.step("Filter options are visible", () -> {
             boolean areFilterOptionsVisible = airbnb.areFilterOptionsDisplayed();
-            if (!areFilterOptionsVisible) {
-                throw new AssertionError("Filter options are not displayed");
-            }
+            Assert.assertTrue(
+                    areFilterOptionsVisible,
+                    "Filter options should be visible on the Airbnb Home Page");
         });
+
         Allure.step("Destination cards are visible",() -> {
             boolean areDestinationCardsVisible = airbnb.areDestinationCardDisplayed();
-            if (!areDestinationCardsVisible) {
-                throw new AssertionError("Destination cards are not displayed");
-            }
+            Assert.assertTrue(
+                    areDestinationCardsVisible,
+                    "Destination cards should be visible on the Airbnb Home Page");
         });
 
     }

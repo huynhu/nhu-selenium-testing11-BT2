@@ -12,7 +12,7 @@ public class airbnbHomePage extends BasePage{
     public airbnbHomePage(WebDriver driver, WebDriverWait wait) {
         super(driver, wait);
     }
-//    URL
+//  URL
     private static final String URL = "https://demo5.cybersoft.edu.vn/";
 
     public static By menuBar(String text){
@@ -26,7 +26,7 @@ public class airbnbHomePage extends BasePage{
 
     private static final By DESTINATION = By.xpath("//p[te xt()='Địa điểm']");
     private static final By SEARCH_DESTINATION = By.xpath("//h1[text()='Tìm kiếm địa điểm']");
-//    Date picker
+//  Date picker
     private static final By DATE_RANGE = By.xpath("(//div[contains(@class,'cursor-pointer')]//p)[3]");
     private static final By DATE_RANGE_PICKER = By.cssSelector(".rdrDateRangePickerWrapper");
 //  Add guest
@@ -37,8 +37,8 @@ public class airbnbHomePage extends BasePage{
     public static By filterOptions(String option){
         return By.xpath("//button[text()='" + option + "']");
     }
-;
-//    Destination cards
+
+//  Destination cards
     public static By destinationCard(String destination){
     return By.xpath("//div[@class='ant-card-body']/div/div/h2[text()='" + destination + "']");
     }
@@ -59,7 +59,7 @@ public class airbnbHomePage extends BasePage{
 
     public void openPage(){
         driver.get(URL);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(CYBERSOFT_LOGO));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(HO_CHI_MINH_CARD));
     }
     public void clickUserDropdown(){
         WebElement iconLogo = wait.until(ExpectedConditions.elementToBeClickable(ICON_LOGO));
@@ -93,8 +93,9 @@ public class airbnbHomePage extends BasePage{
             minusIcon.click();
         }
     }
+
     public boolean isMenuBarDisplayed() {
-        String[] menus = {"Home, About, Services, Contact"};
+        String[] menus = {"Home", "About", "Services", "Pricing", "Contact"};
 
         for (String menu : menus) {
             By locator = menuBar(menu);
