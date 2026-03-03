@@ -96,7 +96,6 @@ public class airbnbHomePage extends BasePage{
 
     public boolean isMenuBarDisplayed() {
         String[] menus = {"Home", "About", "Services", "Pricing", "Contact"};
-
         for (String menu : menus) {
             By locator = menuBar(menu);
             WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
@@ -104,7 +103,7 @@ public class airbnbHomePage extends BasePage{
                 return false;
             }
         }
-        return false;
+        return true;
     }
     public boolean areFilterOptionsDisplayed() {
         String[] options = {"Loại nơi ở", "Giá", "Đặt ngay", "Phòng và phòng ngủ", "Bộ lọc khác"};
